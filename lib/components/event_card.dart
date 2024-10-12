@@ -1,3 +1,4 @@
+import 'package:biometry/components/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class EventCard extends StatelessWidget {
@@ -7,12 +8,19 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.all(25),
-        padding: const EdgeInsets.all(25),
-        decoration: BoxDecoration(
-            color: isPast ? Colors.grey.shade200 : Colors.blue.shade200,
-            borderRadius: BorderRadius.circular(10)),
-        child: child);
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context, MaterialPageRoute(builder: (context) => OnboardingScreen()),
+        );
+      },
+      child: Container(
+          margin: const EdgeInsets.all(25),
+          padding: const EdgeInsets.all(25),
+          decoration: BoxDecoration(
+              color: isPast ? Colors.blue.shade100 : Colors.grey.shade200,
+              borderRadius: BorderRadius.circular(10)),
+          child: child),
+    );
   }
 }

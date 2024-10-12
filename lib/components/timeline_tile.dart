@@ -16,7 +16,7 @@ class BioTimelineTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: 200,
       child: TimelineTile(
         isFirst: isFirst,
         isLast: isLast,
