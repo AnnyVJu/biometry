@@ -21,8 +21,15 @@ class EventCard extends StatelessWidget {
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
         color: isPast ? Color(0xFF0066B3) : Color(0xFFEDF2FE),
+        boxShadow: const [
+          BoxShadow(
+            offset: Offset(0, 2),
+            blurRadius: 20,
+            color: Color(0xFFC2DDFD),
+          ),
+        ],
         borderRadius: BorderRadius.circular(10),
-      ),
+              ),
       child: Stack(
         children: [
           // Фоновая иконка

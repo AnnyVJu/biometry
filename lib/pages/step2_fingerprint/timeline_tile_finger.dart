@@ -22,10 +22,10 @@ class TimelineTileFinger extends StatelessWidget {
       TimelineTile(
         isFirst: isFirst,
         isLast: isLast,
-        beforeLineStyle: LineStyle(color: isPast? Colors.blue.shade900 : Color(0xFFEDF2FE)),
+        beforeLineStyle: LineStyle(color: isPast? Color(0xFF0066B3) : Color(0xFFEDF2FE)),
         indicatorStyle: IndicatorStyle(
           width: 40,
-          color: isPast? Colors.blue.shade900 : Color(0xFFEDF2FE),
+          color: isPast? Color(0xFF0066B3) : Color(0xFFEDF2FE),
           iconStyle: IconStyle(iconData: Icons.done, color: isPast? Colors.white : Color(0xFFEDF2FE),),
           ),
         // event card
