@@ -30,6 +30,8 @@ class TimelineTileVoice extends StatelessWidget {
         endChild: EventCard(
           isPast: isPast,
           child: eventCard,
+          text: 'Голос',
+          icon: Icons.mic,
         )
       ),
     );

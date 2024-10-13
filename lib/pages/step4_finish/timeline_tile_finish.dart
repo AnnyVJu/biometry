@@ -30,6 +30,8 @@ class TimelineTileFinish extends StatelessWidget {
         endChild: EventCard(
           isPast: isPast,
           child: eventCard,
+          text: 'Готово',
+          icon: Icons.check,
         )
       ),
     );

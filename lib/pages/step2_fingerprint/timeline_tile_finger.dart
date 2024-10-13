@@ -17,7 +17,9 @@ class TimelineTileFinger extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 210,
-      child: TimelineTile(
+      child:
+
+      TimelineTile(
         isFirst: isFirst,
         isLast: isLast,
         beforeLineStyle: LineStyle(color: isPast? Colors.blue.shade900 : Colors.blue.shade100),
@@ -30,7 +32,10 @@ class TimelineTileFinger extends StatelessWidget {
         endChild: EventCard(
           isPast: isPast,
           child: eventCard,
+          text: 'Отпечаток пальца',
+          icon: Icons.fingerprint,
         )
+
       ),
     );
   }

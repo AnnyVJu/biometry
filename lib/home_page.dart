@@ -24,9 +24,17 @@ class _HomePageState extends State<HomePage> {
   bool isThirdTilePast = false;
   bool isFourthTilePast = false;
 
-  void completeOnboarding() {
+  void completeOnboarding(int pageIndex) {
     setState(() {
-      isFirstTilePast = true; // меняем состояние при завершении
+      if (pageIndex == 0) {
+        isFirstTilePast = true;
+      } else if (pageIndex == 1) {
+        isSecondTilePast = true;
+      } else if (pageIndex == 2) {
+        isThirdTilePast = true;
+      } else if (pageIndex == 3) {
+        isFourthTilePast = true;
+      }
     });
   }
 
@@ -36,31 +44,42 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: ListView(
         children: [
-          // start timeline
-           TimelineTileFace(
-             isFirst: true,
-             isLast: false,
-             isPast: isFirstTilePast,  // используем состояние
-             eventCard: OnboardingScreenFace(onComplete: completeOnboarding),), // передаем callback,
-          // middle timeline
-           TimelineTileFinger(
-             isFirst: false,
-             isLast: false,
-             isPast: false,
-             eventCard: OnboardingScreenFinger(),),
-           TimelineTileVoice(
-             isFirst: false,
-             isLast: false,
-             isPast: false,
-             eventCard: OnboardingScreenVoice(),),
-          //end timeline
-           TimelineTileFinish(
-             isFirst: false,
-             isLast: true,
-             isPast: false,
-             eventCard: OnboardingScreenFinish(),),
+          // Start timeline
+          TimelineTileFace(
+            isFirst: true,
+            isLast: false,
+            isPast: isFirstTilePast, // используем состояние
+            eventCard: OnboardingScreenFace(
+              onComplete: () => completeOnboarding(0), // передаем индекс 0
+            ),
+          ),
+          // Middle timeline
+          TimelineTileFinger(
+            isFirst: false,
+            isLast: false,
+            isPast: isSecondTilePast,
+            eventCard: OnboardingScreenFinger(
+              onComplete: () => completeOnboarding(1), // передаем индекс 1
+            ),
+          ),
+          TimelineTileVoice(
+            isFirst: false,
+            isLast: false,
+            isPast: isThirdTilePast,
+            eventCard: OnboardingScreenVoice(
+              onComplete: () => completeOnboarding(2), // передаем индекс 2
+            ),
+          ),
+          // End timeline
+          TimelineTileFinish(
+            isFirst: false,
+            isLast: true,
+            isPast: isFourthTilePast,
+            eventCard: OnboardingScreenFinish(),
+          ),
         ],
       ),
     );
+
   }
 }
