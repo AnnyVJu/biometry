@@ -50,7 +50,7 @@ class _FacePage1State extends State<FacePage1> with SingleTickerProviderStateMix
             child: Icon(
               Icons.face, // Иконка головы
               size: 100,
-              color: Colors.blue,
+              color: Color(0xFF0066B3),
             ),
           ),
           const SizedBox(height: 20), // Отступ между иконкой и текстом

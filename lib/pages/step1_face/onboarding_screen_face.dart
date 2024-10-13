@@ -55,7 +55,7 @@ class _OnboardingScreenState extends State<OnboardingScreenFace> {
                     ? ElevatedButton(
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
-                                Colors.blue.shade900)),
+                                Color(0xFF0066B3))),
                         onPressed: () {
                           widget.onComplete(); // вызываем callback для завершения
                           Navigator.pop(context); // закрываем текущий экран

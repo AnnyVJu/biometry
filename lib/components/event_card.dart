@@ -20,7 +20,7 @@ class EventCard extends StatelessWidget {
       margin: const EdgeInsets.all(25),
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
-        color: isPast ? Colors.blue.shade200 : Colors.blue.shade100,
+        color: isPast ? Color(0xFF0066B3) : Color(0xFFEDF2FE),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Stack(
@@ -32,9 +32,19 @@ class EventCard extends StatelessWidget {
               child: Icon(
                 icon,
                 size: 100, // Размер иконки
-                color: Colors.white.withOpacity(0.3), // Цвет иконки с прозрачностью
+                color: Colors.white.withOpacity(0.6), // Цвет иконки с прозрачностью
               ),
             ),
+          ),
+          Center(
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black, // Цвет текста
+              ),
+            ), // Текст поверх иконки
           ),
           GestureDetector(
             onTap: () {
@@ -44,17 +54,8 @@ class EventCard extends StatelessWidget {
               );
             },
           ),
-          // Текст поверх иконки
-          Center(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black, // Цвет текста
-              ),
-            ),
-          ),
+
+
         ],
       ),
     );
