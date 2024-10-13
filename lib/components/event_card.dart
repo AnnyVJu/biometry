@@ -11,7 +11,7 @@ class EventCard extends StatelessWidget {
           margin: const EdgeInsets.all(25),
           padding: const EdgeInsets.all(25),
           decoration: BoxDecoration(
-              color: isPast ? Colors.blue.shade100 : Colors.grey.shade200,
+              color: isPast ? Colors.blue.shade200 : Colors.blue.shade100,
               borderRadius: BorderRadius.circular(10)),
           child: GestureDetector(
             onTap: () {
