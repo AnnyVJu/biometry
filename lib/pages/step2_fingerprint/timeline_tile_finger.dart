@@ -2,12 +2,12 @@ import 'package:biometry/components/event_card.dart';
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
-class BioTimelineTile extends StatelessWidget {
+class TimelineTileFinger extends StatelessWidget {
   final bool isFirst;
   final bool isLast;
   final bool isPast;
   final eventCard;
-  const BioTimelineTile({super.key,
+  const TimelineTileFinger({super.key,
     required this.isFirst,
     required this.isLast,
     required this.isPast,

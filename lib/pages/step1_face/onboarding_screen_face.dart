@@ -1,4 +1,3 @@
-import 'package:biometry/home_page.dart';
 import 'package:biometry/pages/step1_face/page1.dart';
 import 'package:biometry/pages/step1_face/page2.dart';
 import 'package:biometry/pages/step1_face/page3.dart';
@@ -6,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreenFace extends StatefulWidget {
-  const OnboardingScreenFace({super.key});
+  final VoidCallback onComplete; // callback для завершения
+  const OnboardingScreenFace({super.key, required this.onComplete});
 
   @override
   State<OnboardingScreenFace> createState() => _OnboardingScreenState();
@@ -15,7 +15,6 @@ class OnboardingScreenFace extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreenFace> {
   PageController _controller = PageController();
   bool onLastPage = false;
-  late bool isPast;
 
   //controller to keep track of which page we're on
 
@@ -58,15 +57,9 @@ class _OnboardingScreenState extends State<OnboardingScreenFace> {
                             backgroundColor: MaterialStateProperty.all(
                                 Colors.blue.shade900)),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage(),
-                                  settings:
-                                      RouteSettings(arguments: isPast = true)));
-                       setState(() {
-
-                       }); },
+                          widget.onComplete(); // вызываем callback для завершения
+                          Navigator.pop(context); // закрываем текущий экран
+                        },
                         child: Text(
                           'Завершить',
                           style: TextStyle(

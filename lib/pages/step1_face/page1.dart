@@ -5,8 +5,10 @@ class FacePage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text('Face'),
+    return Center(
+      child: Container(
+        child: const Text('Face'),
+      ),
     );
   }
 }
