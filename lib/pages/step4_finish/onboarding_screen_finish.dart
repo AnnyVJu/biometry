@@ -12,16 +12,14 @@ class OnboardingScreenFinish extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreenFinish> {
-
   //controller to keep track of which page we're on
   PageController _controller = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          PageView(
-            controller: _controller,
+      body: Stack(children: [
+        PageView(
+          controller: _controller,
           children: [
             FacePage1(),
             FacePage2(),
@@ -29,10 +27,16 @@ class _OnboardingScreenState extends State<OnboardingScreenFinish> {
           ],
         ),
 
-          //dot indicators
-          Container(
-              alignment: Alignment(0, 0.75),
-              child: SmoothPageIndicator(controller: _controller, count: 3))
+        //dot indicators
+        Container(
+            alignment: Alignment(0, 0.75),
+            child: SmoothPageIndicator(
+              controller: _controller,
+              count: 3,
+              effect: WormEffect(
+                activeDotColor: Color(0xFF0066B3),
+              ),
+            ))
       ]),
     );
   }

@@ -47,17 +47,24 @@ class _OnboardingScreenState extends State<OnboardingScreenFace> {
                   height: 10,
                 ),
 
-                SmoothPageIndicator(controller: _controller, count: 3),
+                SmoothPageIndicator(
+                  controller: _controller,
+                  count: 3,
+                  effect: WormEffect(
+                    activeDotColor: Color(0xFF0066B3),
+                  ),
+                ),
 
                 //next or done
 
                 onLastPage
                     ? ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Color(0xFF0066B3))),
+                            backgroundColor:
+                                MaterialStateProperty.all(Color(0xFFEE2F53))),
                         onPressed: () {
-                          widget.onComplete(); // вызываем callback для завершения
+                          widget
+                              .onComplete(); // вызываем callback для завершения
                           Navigator.pop(context); // закрываем текущий экран
                         },
                         child: Text(

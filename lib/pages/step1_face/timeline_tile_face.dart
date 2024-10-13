@@ -21,11 +21,11 @@ class TimelineTileFace extends StatelessWidget {
       TimelineTile(
         isFirst: isFirst,
         isLast: isLast,
-        beforeLineStyle: LineStyle(color: isPast? Colors.blue.shade900 : Colors.blue.shade100),
+        beforeLineStyle: LineStyle(color: isPast? Color(0xFF0066B3) : Color(0xFFEDF2FE)),
         indicatorStyle: IndicatorStyle(
           width: 40,
-          color: isPast? Colors.blue.shade900 : Colors.blue.shade100,
-          iconStyle: IconStyle(iconData: Icons.done, color: isPast? Colors.white : Colors.blue.shade100,),
+          color: isPast? Color(0xFF0066B3) : Color(0xFFEDF2FE),
+          iconStyle: IconStyle(iconData: Icons.done, color: isPast? Colors.white : Color(0xFFEDF2FE),),
           ),
         // event card
         endChild: EventCard(

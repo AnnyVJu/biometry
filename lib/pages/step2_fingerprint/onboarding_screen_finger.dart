@@ -45,36 +45,42 @@ class _OnboardingScreenState extends State<OnboardingScreenFinger> {
                   width: 100,
                   height: 10,
                 ),
-                SmoothPageIndicator(controller: _controller, count: 3),
+                SmoothPageIndicator(
+                  controller: _controller,
+                  count: 3,
+                  effect: WormEffect(
+                    activeDotColor: Color(0xFF0066B3),
+                  ),
+                ),
 
                 // Next or Done button
                 onLastPage
                     ? ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                      Colors.blue.shade900,
-                    ),
-                  ),
-                  onPressed: () {
-                    widget.onComplete(); // Call the completion callback
-                    Navigator.pop(context); // Close the current screen
-                  },
-                  child: Text(
-                    'Завершить',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                )
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            Color(0xFFEE2F53),
+                          ),
+                        ),
+                        onPressed: () {
+                          widget.onComplete(); // Call the completion callback
+                          Navigator.pop(context); // Close the current screen
+                        },
+                        child: Text(
+                          'Завершить',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      )
                     : ElevatedButton(
-                  onPressed: () {
-                    _controller.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.easeIn,
-                    );
-                  },
-                  child: Text('   Далее   '),
-                ),
+                        onPressed: () {
+                          _controller.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn,
+                          );
+                        },
+                        child: Text('   Далее   '),
+                      ),
               ],
             ),
           ),
