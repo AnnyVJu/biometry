@@ -20,12 +20,12 @@ class EventCard extends StatelessWidget {
       margin: const EdgeInsets.all(25),
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
-        color: isPast ? Color(0xFF0066B3) : Color(0xFFEDF2FE),
+        color: isPast ? Color(0xFFAFD8FE) : Color(0xFFEDF2FE),
         boxShadow: const [
           BoxShadow(
             offset: Offset(0, 2),
-            blurRadius: 20,
-            color: Color(0xFFC2DDFD),
+            blurRadius: 10,
+            color: Color(0xFFE3E3ED),
           ),
         ],
         borderRadius: BorderRadius.circular(10),
@@ -35,21 +35,24 @@ class EventCard extends StatelessWidget {
           // Фоновая иконка
           Positioned.fill(
             child: Align(
-              alignment: Alignment.center,
+              alignment: Alignment.topCenter,
               child: Icon(
                 icon,
-                size: 100, // Размер иконки
-                color: Colors.white.withOpacity(0.6), // Цвет иконки с прозрачностью
+                size: 70, // Размер иконки
+                color: Color(0xFF0066B3).withOpacity(0.6), // Цвет иконки с прозрачностью
               ),
             ),
           ),
-          Center(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: isPast ? Colors.white : Colors.black, // Цвет текста
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                text,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isPast ? Colors.white : Colors.black, // Цвет текста
+                ),
               ),
             ), // Текст поверх иконки
           ),
