@@ -20,14 +20,12 @@ class EventCard extends StatelessWidget {
       margin: const EdgeInsets.all(25),
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
-        color: isPast ? Color(0xFFAFD8FE) : Color(0xFFEDF2FE),
-        boxShadow: const [
-          BoxShadow(
-            offset: Offset(0, 2),
-            blurRadius: 10,
-            color: Color(0xFFE3E3ED),
-          ),
-        ],
+        color: isPast ? Color(0xFFEDF2FE) : Color(0xFFFFFFFF),
+        border: Border.all(
+          color: Color(0xFFEDF2FE), // Adjust color as needed
+          width: 2.0, // Adjust width as needed
+        ),
+
         borderRadius: BorderRadius.circular(10),
               ),
       child: Stack(
@@ -49,9 +47,9 @@ class EventCard extends StatelessWidget {
               child: Text(
                 text,
                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: isPast ? Colors.white : Colors.black, // Цвет текста
+                  fontSize: 16,
+                  fontWeight: FontWeight.w300,
+                  color: Color(0xFF0B1F33), // Цвет текста
                 ),
               ),
             ), // Текст поверх иконки
