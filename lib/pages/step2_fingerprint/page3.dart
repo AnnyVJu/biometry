@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class FingerPage3 extends StatefulWidget {
   const FingerPage3({super.key});
