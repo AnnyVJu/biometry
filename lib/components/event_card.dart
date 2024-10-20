@@ -16,55 +16,48 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(25),
-      padding: const EdgeInsets.all(25),
-      decoration: BoxDecoration(
-        color: isPast ? Color(0xFFEDF2FE) : Color(0xFFFFFFFF),
-        border: Border.all(
-          color: Color(0xFFEDF2FE), // Adjust color as needed
-          width: 2.0, // Adjust width as needed
-        ),
-
-        borderRadius: BorderRadius.circular(10),
-              ),
-      child: Stack(
-        children: [
-          // Фоновая иконка
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: Icon(
-                icon,
-                size: 70, // Размер иконки
-                color: Color(0xFF0066B3).withOpacity(0.6), // Цвет иконки с прозрачностью
-              ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => child),
+        );
+      },
+      child: Flexible(
+        fit: FlexFit.loose,
+        child: Container(
+          padding: const EdgeInsets.all(24),
+          decoration: BoxDecoration(
+            color: isPast ? Color(0xFFEDF2FE) : Color(0xFFFFFFFF),
+            border: Border.all(
+              color: Color(0xFFEDF2FE), // Adjust color as needed
+              width: 2.0, // Adjust width as needed
             ),
+            borderRadius: BorderRadius.circular(10),
           ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
+          child: Wrap(
+            spacing: 8.0,
+            runSpacing: 8.0,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
+            direction: Axis.vertical,
+            children: [
+              Icon(icon,
+                  size: 70, // Размер иконки
+                  color: Color(0xFF0066B3) // Цвет иконки
+                  ),
+              Text(
                 text,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.w300,
                   color: Color(0xFF0B1F33), // Цвет текста
                 ),
               ),
-            ), // Текст поверх иконки
+              // Текст к иконке
+            ],
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => child),
-              );
-            },
-          ),
-
-
-        ],
+        ),
       ),
     );
   }
