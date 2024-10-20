@@ -26,7 +26,9 @@ class EventCard extends StatelessWidget {
       child: Flexible(
         fit: FlexFit.loose,
         child: Container(
+          alignment: Alignment.center,
           padding: const EdgeInsets.all(24),
+          margin: const EdgeInsets.all(4),
           decoration: BoxDecoration(
             color: isPast ? Color(0xFFEDF2FE) : Color(0xFFFFFFFF),
             border: Border.all(
