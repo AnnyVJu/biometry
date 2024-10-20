@@ -1,18 +1,15 @@
-import 'dart:developer';
-
-import 'package:biometry/pages/step1_face/timeline_tile_face.dart';
-import 'package:biometry/pages/step2_fingerprint/timeline_tile_finger.dart';
+import 'package:biometry/components/timeline_tile.dart';
 import 'package:biometry/pages/step1_face/onboarding_screen_face.dart';
 import 'package:biometry/pages/step2_fingerprint/onboarding_screen_finger.dart';
 import 'package:biometry/pages/step3_voice/onboarding_screen_voice.dart';
-import 'package:biometry/pages/step3_voice/timeline_tile_voice.dart';
 import 'package:biometry/pages/step4_finish/onboarding_screen_finish.dart';
-import 'package:biometry/pages/step4_finish/timeline_tile_finish.dart';
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key,});
+  const HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -40,46 +37,53 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body: ListView(
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
           // Start timeline
-          TimelineTileFace(
+          TimelineTileCard(
             isFirst: true,
             isLast: false,
             isPast: isFirstTilePast, // используем состояние
             eventCard: OnboardingScreenFace(
               onComplete: () => completeOnboarding(0), // передаем индекс 0
             ),
+            text: 'Биометрия лица',
+            icon: Icons.face,
           ),
           // Middle timeline
-          TimelineTileFinger(
+          TimelineTileCard(
             isFirst: false,
             isLast: false,
             isPast: isSecondTilePast,
             eventCard: OnboardingScreenFinger(
               onComplete: () => completeOnboarding(1), // передаем индекс 1
             ),
+            text: 'Отпечаток пальца',
+            icon: Icons.fingerprint,
           ),
-          TimelineTileVoice(
+          TimelineTileCard(
             isFirst: false,
             isLast: false,
             isPast: isThirdTilePast,
             eventCard: OnboardingScreenVoice(
               onComplete: () => completeOnboarding(2), // передаем индекс 2
             ),
+            text: 'Голос',
+            icon: Icons.mic,
           ),
           // End timeline
-          TimelineTileFinish(
+          TimelineTileCard(
             isFirst: false,
             isLast: true,
             isPast: isFourthTilePast,
             eventCard: OnboardingScreenFinish(),
+            text: 'Готово',
+            icon: Icons.check,
           ),
         ],
       ),
     );
-
   }
 }
