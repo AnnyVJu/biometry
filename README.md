@@ -2,6 +2,9 @@
 
 ### Проект "Разработка ассистента для упрощения регистрации в единой биометрической системе"
 
+<div align="center">
+
+<div align="center">
 
 <img src="https://github.com/AnnyVJu/biometry/blob/master/doc/img.jpg" title="Mockup" alt="Mockup"/>&nbsp;
 
